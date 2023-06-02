@@ -8,10 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
-      #./home-manager-config.nix
+      #<home-manager/nixos>
+      ./home-manager-config.nix
       #./i3.nix
       #./sway.nix
+      #./hyprland.nix
     ];
 
     
@@ -101,14 +102,14 @@
 
   system.autoUpgrade.enable = true;
   
-  # TODO: eventually i want to replace this block with importing ,/home-manager-config.nix (tarball)
-  home-manager.users.evan = { pkgs, ... }: {
-    home.packages = [ pkgs.neo-cowsay ];
-    programs.bash.enable = true;
-    home.stateVersion = "22.11";
+  # done(?): eventually i want to replace this block with importing ,/home-manager-config.nix (tarball)
+  #home-manager.users.evan = { pkgs, ... }: {
+  #  home.packages = [ pkgs.neo-cowsay ];
+  #  programs.bash.enable = true;
+  #  home.stateVersion = "22.11";
 
-  };
-  home-manager.useGlobalPkgs = true;
+  #};
+  #home-manager.useGlobalPkgs = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -119,27 +120,32 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    pkgs.htop
-    pkgs.git
-    pkgs.discord
-    pkgs.neofetch
-    pkgs.flat-remix-gtk
-    pkgs.flat-remix-icon-theme
-    pkgs.bibata-cursors
-    pkgs.burpsuite
-    pkgs.exiftool
-    pkgs.file
-    pkgs.toybox
-    pkgs.foremost
-    pkgs.binwalk
-    pkgs.unzip
-#    pkgs.hyprland
-    pkgs.kitty
-    pkgs.kitty-themes
-    pkgs.spotify-tui
-    pkgs.spotifyd
-    pkgs.direnv
-    pkgs.gh
+    btop
+    git
+    discord
+    neofetch
+    flat-remix-gtk
+    flat-remix-icon-theme
+    bibata-cursors
+    burpsuite
+    exiftool
+    file
+    toybox
+    foremost
+    binwalk
+    unzip
+    kitty
+    kitty-themes
+    spotify-tui
+    spotifyd
+    direnv
+    gh
+    fd
+    exa
+    tldr
+    bat
+    glow
+    fzf
   ];
   environment.variables.EDITOR = "nvim";
   programs.neovim = {
@@ -150,15 +156,16 @@
     configure = {
       # I am a genius confirmed
       customRC = builtins.readFile /home/evan/.config/nvim/init.vim;
+      #customRC = ''
+      #           luafile ${/home/evan/.config/nvim/init.lua}
+      #           '';
     };
   };
 
-  # programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   
   # enable fish shell
   programs.fish.enable = true;
 
-  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -187,4 +194,3 @@
   system.stateVersion = "22.11"; # Did you read the comment?
 
 }
-
