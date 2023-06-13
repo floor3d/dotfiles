@@ -1,3 +1,58 @@
+call plug#begin('/home/evan/.local/share/nvim/site/plugged')
+
+Plug 'sainnhe/everforest'
+Plug 'sbdchd/neoformat'
+Plug 'windwp/nvim-autopairs'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
+call plug#end()
+
+" BEGIN PLUGIN CONFIGS
+
+if has('termguicolors')
+    set termguicolors
+endif
+set background=dark
+let g:everforest_background = 'hard'
+let g:everforest_better_performance = 1
+colorscheme everforest
+
+" autopairs, nvim-tree config
+lua << EOF
+require("nvim-autopairs").setup {}
+
+-- nvim-tree setup
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+
+vim.cmd('nnoremap <space>e :NvimTreeToggle<CR>')
+
+EOF
+
+
+" END PLUGIN CONFIGS
+
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
 set ignorecase              " case insensitive 
@@ -71,4 +126,5 @@ set signcolumn=auto
 " set terminal title to vim
 set title
 set titlestring=%(%{expand(\"%:~:h\")}%)#%(\ %t%)%(\ %M%)%(\ %)NVIM
+
 
