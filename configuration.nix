@@ -146,6 +146,7 @@
     bat
     glow
     fzf
+    vimPlugins.vim-plug
   ];
   environment.variables.EDITOR = "nvim";
   programs.neovim = {
@@ -154,6 +155,10 @@
     viAlias = true;
     vimAlias = true;
     configure = {
+      packages.myPlugins = with pkgs.vimPlugins; {
+      start = [vim-plug vim-startify vim-airline vim-airline-themes nvim-autopairs];
+      opt = [];
+      };
       # I am a genius confirmed
       customRC = builtins.readFile /home/evan/.config/nvim/init.vim;
       #customRC = ''
@@ -194,3 +199,4 @@
   system.stateVersion = "22.11"; # Did you read the comment?
 
 }
+
