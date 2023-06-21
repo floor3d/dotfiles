@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Get the list of all files in the current directory
+files=$(ls /home/evan/.config/neofetch)
+
+# Initialize an empty array to store the filtered files
+filtered_files=()
+
+# Loop through each file in the list
+for file in $files; do
+  # Check if the file name contains ".ascii"
+  if [[ $file == *".ascii"* ]]; then
+    # Add the file name to the filtered_files array
+    filtered_files+=("$file")
+  fi
+done
+
+# Print the filtered files
+# echo "Available Files:"
+# for file in "${filtered_files[@]}"; do
+#   echo "$file"
+# done
+
+# Select a random file from the filtered_files array
+random_index=$(( RANDOM % ${#filtered_files[@]} ))
+random_file=${filtered_files[random_index]}
+
+# Print the random file
+# echo "File choice: $random_file"
+
+sed -i "s/^image_source=.*/image_source=\"\/home\/evan\/.config\/neofetch\/$random_file\"/" /home/evan/.config/neofetch/config.conf
