@@ -5,6 +5,9 @@ Plug 'sbdchd/neoformat'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 " BEGIN PLUGIN CONFIGS
@@ -16,6 +19,9 @@ set background=dark
 let g:everforest_background = 'hard'
 let g:everforest_better_performance = 1
 colorscheme everforest
+
+" airline config
+let g:airline_powerline_fonts = 1
 
 " autopairs, nvim-tree config
 lua << EOF
@@ -126,5 +132,4 @@ set signcolumn=auto
 " set terminal title to vim
 set title
 set titlestring=%(%{expand(\"%:~:h\")}%)#%(\ %t%)%(\ %M%)%(\ %)NVIM
-
 
