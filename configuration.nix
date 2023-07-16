@@ -2,24 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #<home-manager/nixos>
-      ./home-manager-config.nix
-      #./i3.nix
-      #./sway.nix
-      #./hyprland.nix
+      ./hyprland.nix
     ];
 
-    
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -30,40 +24,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -85,40 +45,66 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.evan = {
-    isNormalUser = true;
-    description = "Evan";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
-    ];
+  # Set your time zone.
+  time.timeZone = "America/New_York";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
-  system.autoUpgrade.enable = true;
-  
-  # done(?): eventually i want to replace this block with importing ,/home-manager-config.nix (tarball)
-  #home-manager.users.evan = { pkgs, ... }: {
-  #  home.packages = [ pkgs.neo-cowsay ];
-  #  programs.bash.enable = true;
-  #  home.stateVersion = "22.11";
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
 
-  #};
-  #home-manager.useGlobalPkgs = true;
+  # greetd
+  services.greetd = {
+    enable = true;
+    settings = {
+        default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting 'The rice awaits.' --asterisks --asterisks-char ? --time --cmd Hyprland";
+            user="greeter";
+        };
+    };
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.evand = {
+    isNormalUser = true;
+    description = "Evan Defloor";
+    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
+    packages = with pkgs; [];
+  };
+
+  # fish
+  programs.fish.enable = true;
+
+  # flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # TODO: clean this up, probably put in home manager
   environment.systemPackages = with pkgs; [
-    vim
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    firefox
+    wofi
     wget
     btop
     git
@@ -127,7 +113,6 @@
     flat-remix-gtk
     flat-remix-icon-theme
     bibata-cursors
-    burpsuite
     exiftool
     file
     toybox
@@ -147,8 +132,11 @@
     glow
     fzf
     vimPlugins.vim-plug
+    waybar
+    swayidle
   ];
-  environment.variables.EDITOR = "nvim";
+
+environment.variables.EDITOR = "nvim";
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -159,17 +147,12 @@
       start = [vim-plug vim-startify vim-airline vim-airline-themes nvim-autopairs];
       opt = [];
       };
-      # I am a genius confirmed
-      customRC = builtins.readFile /home/evan/.config/nvim/init.vim;
+      customRC = builtins.readFile /home/evand/.config/nvim/init.vim;
       #customRC = ''
       #           luafile ${/home/evan/.config/nvim/init.lua}
       #           '';
     };
   };
-
-  
-  # enable fish shell
-  programs.fish.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -196,7 +179,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 
 }
-
