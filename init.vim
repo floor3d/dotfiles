@@ -1,6 +1,6 @@
 call plug#begin('/home/evan/.local/share/nvim/site/plugged')
 
-Plug 'sainnhe/everforest'
+"Plug 'sainnhe/everforest'
 Plug 'sbdchd/neoformat'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-tree/nvim-tree.lua'
@@ -16,9 +16,9 @@ if has('termguicolors')
     set termguicolors
 endif
 set background=dark
-let g:everforest_background = 'hard'
-let g:everforest_better_performance = 1
-colorscheme everforest
+"let g:everforest_background = 'hard'
+"let g:everforest_better_performance = 1
+"colorscheme everforest
 
 " airline config
 let g:airline_powerline_fonts = 1
