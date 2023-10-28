@@ -1,5 +1,7 @@
 # replace ls with exa, the newer and cooler version of ls
 alias ls 'exa'
+#replace cat with bat (cat with wings of course)
+alias cat 'bat'
 # lazy alias for neovim
 alias v 'nvim'
 # every time neofetch is run, switch the ascii art and run it
