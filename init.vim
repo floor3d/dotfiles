@@ -8,6 +8,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " BEGIN PLUGIN CONFIGS
