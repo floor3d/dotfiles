@@ -108,8 +108,8 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" use tab for trigger completion
-inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" use enter for trigger completion
+inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " always uses spaces instead of tab characters
 set expandtab
