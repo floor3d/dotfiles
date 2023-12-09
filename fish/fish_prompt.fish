@@ -167,8 +167,8 @@ function __theme_print_battery_status
         #        print_colored "$batt_symbol " $theme_color_batt_icon
     end
     #    print_colored "$batt%" $batt_color
-    print_colored "$batt" $batt_color
-    print_colored "$batt_state_symbol" $batt_state_color
+    print_colored " $batt" $batt_color
+    print_colored "$batt_state_symbol " $batt_state_color
     print_colored "]" $batt_state_color
 end
 function __theme_print_git_status
