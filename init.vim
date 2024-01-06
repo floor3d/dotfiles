@@ -1,3 +1,13 @@
+"
+"
+"
+" NOTE: I NO LONGER USE THIS INIT.VIM!
+" I now use:
+" https://github.com/pgosar/CyberNvim
+" Use this, and simply :CyberUpdate to update the distribution accordingly
+"
+"
+"
 call plug#begin('/home/evan/.local/share/nvim/site/plugged')
 
 "Plug 'sainnhe/everforest'
@@ -64,12 +74,12 @@ EOF
 " END PLUGIN CONFIGS
 
 set nocompatible            " disable compatibility to old-time vi
-set showmatch               " show matching 
-set ignorecase              " case insensitive 
-set mouse=v                 " middle-click paste with 
-set hlsearch                " highlight search 
+set showmatch               " show matching
+set ignorecase              " case insensitive
+set mouse=v                 " middle-click paste with
+set hlsearch                " highlight search
 set incsearch               " incremental search
-set tabstop=4               " number of columns occupied by a tab 
+set tabstop=4               " number of columns occupied by a tab
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
@@ -92,7 +102,7 @@ set ttyfast                 " Speed up scrolling in Vim
 set mouse=a " set mouse on
 
 " save file with Ctrl+s
-command -nargs=0 -bar Update if &modified 
+command -nargs=0 -bar Update if &modified
                            \|    if empty(bufname('%'))
                            \|        browse confirm write
                            \|    else
@@ -131,7 +141,7 @@ set colorcolumn=100
 set formatoptions-=cro
 
 " more buffers open
-set hidden 
+set hidden
 
 " update everything, faster completion
 set updatetime=300
