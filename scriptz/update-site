@@ -1,0 +1,14 @@
+# Updates my site via git pull so I can add modify site from anywhere
+
+#!/bin/bash
+
+GIT=/usr/bin/git
+ECHO=/bin/echo
+
+cd /personal-website || exit
+
+pull_output=$($GIT pull)
+
+if [[ $pull_output != *"Already up to date."* ]]; then
+	hugo
+fi
