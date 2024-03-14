@@ -1,0 +1,26 @@
+#!/bin/bash
+# script which takes 1 argument (input str) and runs
+# git add . && git commit -m [input] && git push
+#
+# because i am very lazy
+
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 <commit_msg>"
+  exit 1
+fi
+
+final_str="$1"
+# take user input 
+
+for ((i = 2; i < $#; i++)); do
+  final_str+=" ${!i}"
+done
+
+git add . && git commit -m "$final_str" && git push 
+
+
+if [ $? -ne 0 ]; then
+  echo "[!] Failed! I wonder why...  check error messages."
+else
+  echo "[+] Added, committed, and pushed."
+fi

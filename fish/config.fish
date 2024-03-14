@@ -29,3 +29,4 @@ set PATH $PATH /home/evan/.local/bin
 # add cargo bin 2 path
 set -gx PATH $PATH /home/evan/.cargo/bin/
 
+set -gx PATH $PATH /home/evan/.config/dotfiles/scriptz
