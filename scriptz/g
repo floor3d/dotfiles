@@ -22,5 +22,5 @@ git add . && git commit -m "$final_str" && git push
 if [ $? -ne 0 ]; then
   echo "[!] Failed! I wonder why...  check error messages."
 else
-  echo "[+] Added, committed, and pushed."
+  echo "[+] Added, committed, and pushed with commit message '$final_str'"
 fi
