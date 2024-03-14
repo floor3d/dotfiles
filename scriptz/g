@@ -12,7 +12,7 @@ fi
 final_str="$1"
 # take user input 
 
-for ((i = 2; i < $#; i++)); do
+for ((i = 2; i <= $#; i++)); do
   final_str+=" ${!i}"
 done
 
