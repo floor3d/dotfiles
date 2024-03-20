@@ -18,7 +18,7 @@ alias vpnup "sudo wg-quick up XPS-13"
 
 alias vpndown "sudo wg-quick down XPS-13"
 
-alias install "sudo pacman -Syu"
+alias pac "sudo pacman -Syu"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
