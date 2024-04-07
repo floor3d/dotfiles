@@ -32,3 +32,11 @@ set PATH $PATH /home/evan/.local/bin
 set -gx PATH $PATH /home/evan/.cargo/bin/
 
 set -gx PATH $PATH /home/evan/.config/dotfiles/scriptz
+
+# copy for 'evand'
+# Created by `pipx` on 2024-03-12 22:46:21
+set PATH $PATH /home/evand/.local/bin
+# add cargo bin 2 path
+set -gx PATH $PATH /home/evand/.cargo/bin/
+
+set -gx PATH $PATH /home/evand/.config/dotfiles/scriptz
