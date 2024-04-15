@@ -20,10 +20,12 @@ alias vpndown "sudo wg-quick down XPS-13"
 
 alias pac "sudo pacman -Syu"
 
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     # init zoxide
     zoxide init --cmd cd fish | source
+    fzf --fish | source
 end
 
 # Created by `pipx` on 2024-03-12 22:46:21
