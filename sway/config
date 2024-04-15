@@ -18,7 +18,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu dmenu_path | wmenu | wofi --show run | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -27,7 +27,7 @@ output * bg /home/evand/.config/dotfiles/Wallpapers/japanese-happy-5BF74.jpg fil
 #
 # Example configuration:
 #
-output HDMI-A-1 resolution 1920x1080 position 0,190
+output HDMI-A-1 resolution 1920x1080 position 0,150
 output DP-1 resolution 2560x1440@165.153Hz position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -69,6 +69,10 @@ input "1133:16500:Logitech_G305" {
     
     bindsym $mod+w exec firefox
     bindsym $mod+shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png 
+# keybindings 4 volume
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Basics:
 #
@@ -230,8 +234,8 @@ bar {
 }
 
 # SWAYFX CONFIG
-gaps inner 10
-gaps outer 5 
+gaps inner 2
+gaps outer 5
 font pango:monospace 0
 default_border pixel 2
 default_floating_border pixel 2
