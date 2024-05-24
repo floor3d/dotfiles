@@ -1,0 +1,104 @@
+{
+	"layer": "top",
+	"position": "top",
+	"spacing": 5,
+	"height": 26,
+  "ipc": true,
+	"modules-left": ["idle_inhibitor", "sway/workspaces", "sway/scratchpad", "sway/window"],
+	"modules-center": ["custom/cmus", "image", "clock"],
+	"modules-right": [
+		"custom/pacman",
+		"custom/microphone",
+		"network",
+		"bluetooth",
+		"pulseaudio",
+		"backlight",
+    "custom/bat"
+	],
+  "sway/scratchpad": {
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": ["", " "],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+	"custom/cmus": {
+		"exec-if": "pgrep cmus",
+		"exec": "playerctl --player=cmus --format \"{{duration(position)}}/{{duration(mpris:length)}} {{trunc(title, 40)}} - {{trunc(artist, 20)}}\" metadata",
+		"on-click": "playerctl --player=cmus play-pause",
+		"on-click-middle": "playerctl --player=cmus previous",
+		"on-click-right": "playerctl --player=cmus next",
+		"interval": 5
+	},
+	"custom/bat": {
+		"exec": "~/.config/waybar/scripts/bat",
+		"interval": 60
+	},
+	"custom/microphone": {
+		"exec": "~/.config/waybar/scripts/microphone.sh",
+		"on-click": "pavucontrol",
+		"interval": 5
+	},
+	"bluetooth": {
+		"format": "󰂲",
+		"format-connected": "",
+		"tooltip-format": "{controller_alias}\t{controller_address}\n {num_connections} connected",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n {num_connections} connected\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+		"on-click": "$TERMINAL bluetoothctl"
+	},
+	"network": {
+		"format-wifi": "{icon}",
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤢", "󰤨"],
+		"format-ethernet": "{ipaddr}/{cidr}",
+		"format-disconnected": "󰤮",
+		"tooltip-format-wifi": "{essid}, Strength: {signalStrength}%",
+		"tooltip-format-ethernet": "",
+		"max-length": 50,
+		"on-click": "nmcli device wifi rescan",
+		"on-click": "$TERMINAL"
+	},
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{percent}% {icon}",
+		"format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
+		"tooltip": false
+	},
+	"pulseaudio": {
+		"scroll-step": 5,
+		"format": "{volume}% {icon}",
+		"format-icons": ["", "", ""],
+		"format-muted": "  󰝟",
+		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol"
+	},
+	"clock": {
+		"interval": 60,
+		"tooltip-format": "{calendar}",
+		"calendar": {
+			"format": {
+				"today": "<b><u>{}</u></b>"
+			}
+		}
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": "󰒲"
+		}
+	},
+	"custom/pacman": {
+		"interval": 3600,
+		"exec": "~/.config/waybar/scripts/pacman.sh",
+		"on-click": "$TERMINAL paru -Syu && pkill -SIGRTMIN+8 waybar",
+		"signal": 8,
+		"tooltip": false
+	},
+	"image": {
+		"interval": 3600,
+		"exec": "~/.config/waybar/scripts/weather.sh",
+		"on-click": "$BROWSER https://www.3bmeteo.com/meteo/luzzi &"
+	}
+}

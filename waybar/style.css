@@ -1,0 +1,43 @@
+@import "dark-colors.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: 600;
+  font-size: 12px;
+}
+
+window { background: @bg; }
+
+label {
+  padding: 0 8px;
+  color: @text;
+}
+
+button {
+  margin: 4px 0;
+  border-radius: 4px;
+}
+
+tooltip {
+  background: @bg1;
+  border: solid 1px @border;
+  border-radius: 4px;
+}
+
+#idle_inhibitor { padding: 0 20px 0 15px; }
+#idle_inhibitor.activated { color: @yellow; }
+
+#workspaces button {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+}
+#workspaces button label { color: @text-dimmed; }
+#workspaces button:hover { background: @bg2; border: solid 1px @bg2; box-shadow: none; }
+#workspaces button.focused label { color: @text; }
+#custom-bat.critical, #custom-microphone { color: @red; }
+
+/* Layout */
+#custom-bat { margin: 0 20px 0 30px; }
+#pulseaudio { margin-left: 20px; }
+#network    { margin-left: 20px; }

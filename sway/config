@@ -59,7 +59,7 @@ output DP-1 resolution 2560x1440@165.153Hz position 1920,0
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 input "1133:16500:Logitech_G305" {
-	pointer_accel -0.25
+	pointer_accel -0.5
 }
 
 ### Key bindings
@@ -69,6 +69,7 @@ input "1133:16500:Logitech_G305" {
     
     bindsym $mod+w exec firefox
     bindsym $mod+shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png 
+    bindsym $mod+ctrl+l exec swaylock
 # keybindings 4 volume
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
