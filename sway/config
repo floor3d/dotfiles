@@ -64,12 +64,12 @@ input "1133:16500:Logitech_G305" {
 
 ### Key bindings
 #
-
 # Evan custom key bindings
     
     bindsym $mod+w exec firefox
     bindsym $mod+shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png 
     bindsym $mod+ctrl+l exec swaylock
+    bindsym $mod+Shift+n exec swaync-client -t -sw
 # keybindings 4 volume
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -236,7 +236,7 @@ bar {
 
 # SWAYFX CONFIG
 gaps inner 2
-gaps outer 5
+gaps outer 4
 font pango:monospace 0
 default_border pixel 2
 default_floating_border pixel 2
@@ -253,5 +253,7 @@ blur_passes 2
 blur_radius 2
 shadows on
 shadow_blur_radius 20
+
+exec swaync
 
 include /etc/sway/config.d/*

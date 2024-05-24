@@ -5,15 +5,12 @@
 	"height": 26,
   "ipc": true,
 	"modules-left": [ "sway/workspaces", "sway/scratchpad", "sway/window"],
-	"modules-center": ["custom/cmus", "image", "clock"],
+	"modules-center": ["custom/cmus", "clock"],
 	"modules-right": [
-		"custom/pacman",
-		"custom/microphone",
 		"network",
 		"bluetooth",
 		"pulseaudio",
-		"backlight",
-    "custom/bat"
+    "custom/swaync"
 	],
   "sway/scratchpad": {
     "format": "{icon} {count}",
@@ -28,15 +25,6 @@
 		"on-click": "playerctl --player=cmus play-pause",
 		"on-click-middle": "playerctl --player=cmus previous",
 		"on-click-right": "playerctl --player=cmus next",
-		"interval": 5
-	},
-	"custom/bat": {
-		"exec": "~/.config/waybar/scripts/bat",
-		"interval": 60
-	},
-	"custom/microphone": {
-		"exec": "~/.config/waybar/scripts/microphone.sh",
-		"on-click": "pavucontrol",
 		"interval": 5
 	},
 	"bluetooth": {
@@ -89,16 +77,8 @@
 			"deactivated": "󰒲"
 		}
 	},
-	"custom/pacman": {
-		"interval": 3600,
-		"exec": "~/.config/waybar/scripts/pacman.sh",
-		"on-click": "$TERMINAL paru -Syu && pkill -SIGRTMIN+8 waybar",
-		"signal": 8,
-		"tooltip": false
-	},
-	"image": {
-		"interval": 3600,
-		"exec": "~/.config/waybar/scripts/weather.sh",
-		"on-click": "$BROWSER https://www.3bmeteo.com/meteo/luzzi &"
+	"custom/swaync": {
+		"format": "[!]",
+    "on-click": "swaync-client -t -sw"
 	}
 }
