@@ -4,7 +4,7 @@
 	"spacing": 5,
 	"height": 26,
   "ipc": true,
-	"modules-left": ["idle_inhibitor", "sway/workspaces", "sway/scratchpad", "sway/window"],
+	"modules-left": [ "sway/workspaces", "sway/scratchpad", "sway/window"],
 	"modules-center": ["custom/cmus", "image", "clock"],
 	"modules-right": [
 		"custom/pacman",

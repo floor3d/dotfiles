@@ -240,7 +240,7 @@ gaps outer 5
 font pango:monospace 0
 default_border pixel 2
 default_floating_border pixel 2
-client.focused #faa7ee #faa7ee #faa7ee #faa7ee #faa7ee
+client.focused  #0b91a3 #0b91a3 #0b91a3 #0b91a3 #0b91a3
 client.unfocused #453a3a #453a3a #453a3a #453a3a #453a3a
 client.focused_inactive #453a3a #453a3a #453a3a #453a3a #453a3a
 
