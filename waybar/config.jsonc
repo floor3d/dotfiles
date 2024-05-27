@@ -7,8 +7,8 @@
 	"modules-left": [ "sway/workspaces", "sway/scratchpad", "sway/window"],
 	"modules-center": ["custom/cmus", "clock"],
 	"modules-right": [
+    "clock#date",
 		"network",
-		"bluetooth",
 		"pulseaudio",
     "custom/swaync"
 	],
@@ -39,7 +39,7 @@
 	"network": {
 		"format-wifi": "{icon}",
 		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤢", "󰤨"],
-		"format-ethernet": "{ipaddr}/{cidr}",
+		"format-ethernet": "{ipaddr}",///{cidr}",
 		"format-disconnected": "󰤮",
 		"tooltip-format-wifi": "{essid}, Strength: {signalStrength}%",
 		"tooltip-format-ethernet": "",
@@ -63,12 +63,17 @@
 	},
 	"clock": {
 		"interval": 60,
+    "tooltip": true,
+	  "format": "{:%H:%M}",
 		"tooltip-format": "{calendar}",
 		"calendar": {
 			"format": {
 				"today": "<b><u>{}</u></b>"
 			}
 		}
+	},
+	"clock#date": {
+    "format": "{:%Y-%m-%d}"
 	},
 	"idle_inhibitor": {
 		"format": "{icon}",
