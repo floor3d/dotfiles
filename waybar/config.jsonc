@@ -10,7 +10,8 @@
     "clock#date",
 		"network",
 		"pulseaudio",
-    "custom/swaync"
+    "custom/swaync",
+    "custom/shutdown"
 	],
   "sway/scratchpad": {
     "format": "{icon} {count}",
@@ -85,5 +86,9 @@
 	"custom/swaync": {
 		"format": "[!]",
     "on-click": "swaync-client -t -sw"
-	}
+	},
+  "custom/shutdown": {
+    "format": "⏻",
+    "on-click": "~/.config/dotfiles/waybar/wofi-power.sh"
+  }
 }
