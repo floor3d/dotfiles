@@ -236,7 +236,7 @@ bar {
 
 # SWAYFX CONFIG
 gaps inner 2
-gaps outer 4
+gaps outer 3
 font pango:monospace 0
 default_border pixel 2
 default_floating_border pixel 2
@@ -247,7 +247,7 @@ client.focused_inactive #453a3a #453a3a #453a3a #453a3a #453a3a
 titlebar_padding 1
 titlebar_border_thickness 0
 smart_corner_radius on
-corner_radius 10
+corner_radius 5
 blur enable
 blur_passes 2
 blur_radius 2
