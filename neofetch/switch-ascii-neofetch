@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Get the list of all files in the current directory
-files=$(ls /home/evan/.config/neofetch/ascii)
+
+files=$(ls $HOME/.config/dotfiles/neofetch/ascii)
 
 # Initialize an empty array to store the filtered files
 filtered_files=()
@@ -28,4 +29,4 @@ random_file=${filtered_files[random_index]}
 # Print the random file
 # echo "File choice: $random_file"
 
-sed -i "s/^image_source=.*/image_source=\"\/home\/evan\/.config\/neofetch\/ascii\/$random_file\"/" /home/evan/.config/neofetch/config.conf
+sed -i "s|^image_source=.*|image_source=\"$HOME/.config/neofetch/ascii/$random_file\"|" $HOME/.config/neofetch/config.conf

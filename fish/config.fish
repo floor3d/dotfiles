@@ -8,15 +8,6 @@ alias v 'nvim'
 alias neofetch '~/.config/neofetch/switch-ascii-neofetch; /usr/bin/neofetch'
 # "automatically copy over the terminfo files and also magically enable shell integration on the remote machine."
 alias s 'kitten ssh'
-#kubectl facepalm
-#makes kubectl work locally
-alias kubectl "minikube kubectl --"
-
-alias wmlab "xfreerdp ~/Programming/Malware\ Topics\ Test\ Spring\ 2024.rdp /p:Example_Password1 /dynamic-resolution"
-
-alias vpnup "sudo wg-quick up XPS-13"
-
-alias vpndown "sudo wg-quick down XPS-13"
 
 alias pac "sudo pacman -Syu"
 
@@ -26,19 +17,20 @@ if status is-interactive
     # init zoxide
     zoxide init --cmd cd fish | source
     fzf --fish | source
+    source $HOME/.config/fish/fish_prompt.fish
 end
 
 # Created by `pipx` on 2024-03-12 22:46:21
-set PATH $PATH /home/evan/.local/bin
+set PATH $PATH $HOME/.local/bin
 # add cargo bin 2 path
-set -gx PATH $PATH /home/evan/.cargo/bin/
+set -gx PATH $PATH $HOME/.cargo/bin/
 
-set -gx PATH $PATH /home/evan/.config/dotfiles/scriptz
+set -gx PATH $PATH $HOME/.config/dotfiles/scriptz
 
 # copy for 'evand'
 # Created by `pipx` on 2024-03-12 22:46:21
-set PATH $PATH /home/evand/.local/bin
+set PATH $PATH $HOME/.local/bin
 # add cargo bin 2 path
-set -gx PATH $PATH /home/evand/.cargo/bin/
+set -gx PATH $PATH $HOME/.cargo/bin/
 
-set -gx PATH $PATH /home/evand/.config/dotfiles/scriptz
+set -gx PATH $PATH $HOME/.config/dotfiles/scriptz

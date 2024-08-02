@@ -40,7 +40,7 @@ set -g theme_display_git yes
 #set -g theme_display_jobs_always yes
 #
 ## Don't display if the current working directory is readable/writable
-#set -g theme_display_rw no
+set -g theme_display_rw no
 #
 ## Don't display virtualenv
 #set -g theme_display_virtualenv no
