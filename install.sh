@@ -20,10 +20,10 @@ function link_fish {
 
 function link_kitty {
 	path="$h/.config/dotfiles/kitty"
-	cd $h/.config/kitty
-	rm *
-	ln -s $path/current_theme.conf current_theme.conf
-	ln -s $path/kitty.conf kitty.conf
+	nondot="$h/.config/kitty"
+	rm $nondot/kitty.conf || rm $nondot/current-theme.conf 2> /dev/null
+	ln -s $path/current-theme.conf $nondot/current-theme.conf
+	ln -s $path/kitty.conf $nondot/kitty.conf
 }
 
 #link_fish
