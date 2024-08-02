@@ -46,8 +46,8 @@ set -g theme_display_git yes
 #set -g theme_display_virtualenv no
 #
 ## Display the battery
-set -g theme_display_batt yes
-set -g theme_display_batt_icon yes
+set -g theme_display_batt no
+set -g theme_display_batt_icon no
 #
 
 # Colors
