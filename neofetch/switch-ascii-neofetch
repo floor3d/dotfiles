@@ -29,4 +29,4 @@ random_file=${filtered_files[random_index]}
 # Print the random file
 # echo "File choice: $random_file"
 
-sed -i "s|^image_source=.*|image_source=\"$HOME/.config/neofetch/ascii/$random_file\"|" $HOME/.config/neofetch/config.conf
+sed -i "s|^image_source=.*|image_source=\"$HOME/.config/dotfiles/neofetch/ascii/$random_file\"|" $HOME/.config/neofetch/config.conf
