@@ -36,3 +36,7 @@ set PATH $PATH $HOME/.local/bin
 set -gx PATH $PATH $HOME/.cargo/bin/
 
 set -gx PATH $PATH $HOME/.config/dotfiles/scriptz
+
+if command -v direnv > /dev/null
+    direnv hook fish | source
+end
