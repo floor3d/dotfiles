@@ -27,7 +27,7 @@ set -gx PATH $PATH $HOME/.cargo/bin/
 
 set -gx PATH $PATH $HOME/.config/dotfiles/scriptz
 
-set -gx PATH $PATH $HOME/.nix-profile/bin
+set -gx PATH $HOME/.nix-profile/bin/ $PATH 
 
 # copy for 'evand'
 # Created by `pipx` on 2024-03-12 22:46:21
