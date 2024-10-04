@@ -29,6 +29,8 @@ set -gx PATH $PATH $HOME/.config/dotfiles/scriptz
 
 set -gx PATH $HOME/.nix-profile/bin/ $PATH 
 
+set -g fish_key_bindings fish_vi_key_bindings
+
 # copy for 'evand'
 # Created by `pipx` on 2024-03-12 22:46:21
 set PATH $PATH $HOME/.local/bin
