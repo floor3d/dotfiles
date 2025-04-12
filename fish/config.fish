@@ -39,7 +39,16 @@ set -gx PATH $PATH $HOME/.cargo/bin/
 
 set -gx PATH $PATH $HOME/.config/dotfiles/scriptz
 
-set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -p -lman'"
+if test -f /etc/os-release
+    set -lx ID (grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
+    if test "$ID" = "debian"
+	set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -p -lman'"
+    else if test "$ID" = "ubuntu"
+	set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -p -lman'"
+    else
+	 set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+    end
+end
 
 if command -v direnv > /dev/null
     direnv hook fish | source
