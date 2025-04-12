@@ -39,6 +39,8 @@ set -gx PATH $PATH $HOME/.cargo/bin/
 
 set -gx PATH $PATH $HOME/.config/dotfiles/scriptz
 
+ set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+
 if command -v direnv > /dev/null
     direnv hook fish | source
 end
