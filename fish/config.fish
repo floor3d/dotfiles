@@ -1,7 +1,5 @@
 # replace ls with exa, the newer and cooler version of ls
 alias ls 'exa'
-#replace cat with bat (cat with wings of course)
-alias cat 'batcat'
 # lazy alias for neovim
 alias v 'nvim'
 # every time neofetch is run, switch the ascii art and run it
@@ -42,11 +40,16 @@ set -gx PATH $PATH $HOME/.config/dotfiles/scriptz
 if test -f /etc/os-release
     set -lx ID (grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
     if test "$ID" = "debian"
+	#replace cat with bat (cat with wings of course)
+	alias cat 'batcat'
 	set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -p -lman'"
     else if test "$ID" = "ubuntu"
+	#replace cat with bat (cat with wings of course)
+	alias cat 'batcat'
 	set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -p -lman'"
     else
-	 set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+	alias cat 'bat'
+	set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
     end
 end
 
