@@ -1,7 +1,7 @@
 #!/bin/bash
 
 h=$(cd ~; pwd)
-
+#
 function link_fish {
 	path="$h/.config/dotfiles/fish"
 	cd $h/.config/fish
@@ -18,25 +18,25 @@ function link_fish {
 	$path/install
 }
 
-function link_kitty {
-	path="$h/.config/dotfiles/kitty"
-	nondot="$h/.config/kitty"
-	rm $nondot/kitty.conf 2> /dev/null || rm $nondot/current-theme.conf 2> /dev/null
-	ln -s $path/current-theme.conf $nondot/current-theme.conf
-	ln -s $path/kitty.conf $nondot/kitty.conf
-}
+#function link_kitty {
+#	path="$h/.config/dotfiles/kitty"
+#	nondot="$h/.config/kitty"
+#	rm $nondot/kitty.conf 2> /dev/null || rm $nondot/current-theme.conf 2> /dev/null
+#	ln -s $path/current-theme.conf $nondot/current-theme.conf
+#	ln -s $path/kitty.conf $nondot/kitty.conf
+#}
 
-function link_neofetch {
-	path="$h/.config/dotfiles/neofetch"
-	nondot="$h/.config/neofetch"
-	rm $nondot/config.conf 2> /dev/null; rm $nondot/switch-ascii-neofetch 2> /dev/null
-	ln -s $path/config.conf $nondot/config.conf
-	chmod +x $path/switch-ascii-neofetch
-	ln -s $path/switch-ascii-neofetch $nondot/switch-ascii-neofetch
+#function link_neofetch {
+#	path="$h/.config/dotfiles/neofetch"
+#	nondot="$h/.config/neofetch"
+#	rm $nondot/config.conf 2> /dev/null; rm $nondot/switch-ascii-neofetch 2> /dev/null
+#	ln -s $path/config.conf $nondot/config.conf
+#	chmod +x $path/switch-ascii-neofetch
+#	ln -s $path/switch-ascii-neofetch $nondot/switch-ascii-neofetch
+#
+#}
 
-}
+#link_neofetch
 
-link_neofetch
-
-#link_fish
+link_fish
 #link_kitty
