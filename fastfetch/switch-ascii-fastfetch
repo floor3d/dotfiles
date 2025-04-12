@@ -2,7 +2,7 @@
 
 # Get the list of all files in the current directory
 
-files=$(ls $HOME/.config/dotfiles/neofetch/ascii)
+files=$(ls $HOME/.config/dotfiles/fastfetch/ascii)
 
 # Initialize an empty array to store the filtered files
 filtered_files=()
@@ -29,4 +29,4 @@ random_file=${filtered_files[random_index]}
 # Print the random file
 # echo "File choice: $random_file"
 
-sed -i "s|^image_source=.*|image_source=\"$HOME/.config/dotfiles/neofetch/ascii/$random_file\"|" $HOME/.config/neofetch/config.conf
+fastfetch -l $HOME/.config/dotfiles/fastfetch/ascii/$random_file
