@@ -18,6 +18,12 @@ function link_fish {
 	$path/install
 }
 
+function link_nvim {
+	path="$h/.config/dotfiles/nvim-plugin-files"
+	cd $h/.config/nvim/lua/plugins
+	ln -s $path/leap.lua leap.lua
+}
+
 #function link_kitty {
 #	path="$h/.config/dotfiles/kitty"
 #	nondot="$h/.config/kitty"
