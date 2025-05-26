@@ -25,7 +25,7 @@ end
 set -g theme_display_time yes
 #
 ## Display the user's current group
-#set -g theme_display_group no
+set -g theme_display_group no
 #
 # Display the system hostname
 set -g theme_display_hostname yes
