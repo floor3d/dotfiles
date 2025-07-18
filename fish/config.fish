@@ -4,6 +4,7 @@ alias ls 'exa'
 alias v 'nvim'
 # every time neofetch is run, switch the ascii art and run it
 alias fastfetch '~/.config/dotfiles/fastfetch/switch-ascii-fastfetch'
+alias ff '~/.config/dotfiles/fastfetch/switch-ascii-fastfetch'
 # "automatically copy over the terminfo files and also magically enable shell integration on the remote machine."
 alias s 'kitten ssh'
 
