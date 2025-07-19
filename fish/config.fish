@@ -54,6 +54,7 @@ if test -f /etc/os-release
     else
 	alias cat 'bat'
 	set -gx MANPAGER "sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+	eval "$(/opt/homebrew/bin/brew shellenv)"
     end
 end
 
@@ -61,4 +62,3 @@ if command -v direnv > /dev/null
     direnv hook fish | source
 end
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
