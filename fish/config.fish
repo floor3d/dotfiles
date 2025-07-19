@@ -37,6 +37,9 @@ set -gx PATH $PATH $HOME/.cargo/bin/
 
 set -gx PATH $PATH $HOME/.config/dotfiles/scriptz
 
+# set editor to nvim
+set -gx EDITOR nvim
+
 if test -f /etc/os-release
     set -lx ID (grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
     if test "$ID" = "debian"
@@ -56,3 +59,5 @@ end
 if command -v direnv > /dev/null
     direnv hook fish | source
 end
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
