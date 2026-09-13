@@ -24,25 +24,13 @@ function link_nvim {
 	ln -s $path/leap.lua leap.lua
 }
 
-#function link_kitty {
-#	path="$h/.config/dotfiles/kitty"
-#	nondot="$h/.config/kitty"
-#	rm $nondot/kitty.conf 2> /dev/null || rm $nondot/current-theme.conf 2> /dev/null
-#	ln -s $path/current-theme.conf $nondot/current-theme.conf
-#	ln -s $path/kitty.conf $nondot/kitty.conf
-#}
-
-#function link_neofetch {
-#	path="$h/.config/dotfiles/neofetch"
-#	nondot="$h/.config/neofetch"
-#	rm $nondot/config.conf 2> /dev/null; rm $nondot/switch-ascii-neofetch 2> /dev/null
-#	ln -s $path/config.conf $nondot/config.conf
-#	chmod +x $path/switch-ascii-neofetch
-#	ln -s $path/switch-ascii-neofetch $nondot/switch-ascii-neofetch
-#
-#}
-
-#link_neofetch
+function link_kitty {
+	path="$h/.config/dotfiles/kitty"
+	nondot="$h/.config/kitty"
+	rm $nondot/kitty.conf 2> /dev/null || rm $nondot/current-theme.conf 2> /dev/null
+	ln -s $path/current-theme.conf $nondot/current-theme.conf
+	ln -s $path/kitty.conf $nondot/kitty.conf
+}
 
 link_fish
-#link_kitty
+link_kitty
