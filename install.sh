@@ -22,6 +22,7 @@ function link_nvim {
 	path="$h/.config/dotfiles/nvim-plugin-files"
 	cd $h/.config/nvim/lua/plugins
 	ln -s $path/leap.lua leap.lua
+	# TODO: append init.lua 
 }
 
 function link_kitty {
@@ -32,5 +33,11 @@ function link_kitty {
 	ln -s $path/kitty.conf $nondot/kitty.conf
 }
 
+function set_shell {
+	chsh -s /usr/bin/fish $USER
+}
+
 link_fish
 link_kitty
+link_nvim
+set_shell

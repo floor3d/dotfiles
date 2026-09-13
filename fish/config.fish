@@ -1,5 +1,5 @@
-# replace ls with exa, the newer and cooler version of ls
-alias ls 'exa'
+# replace ls with eza, the newer and cooler version of ls
+alias ls 'eza'
 # lazy alias for neovim
 alias v 'nvim'
 # every time neofetch is run, switch the ascii art and run it
@@ -17,6 +17,8 @@ if status is-interactive
     zoxide init --cmd cd fish | source
     fzf --fish | source
     source $HOME/.config/fish/fish_prompt.fish
+    # zellij
+    eval (zellij setup --generate-auto-start fish | string collect)
 end
 
 # Created by `pipx` on 2024-03-12 22:46:21
